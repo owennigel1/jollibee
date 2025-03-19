@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dear ariella :) 💌</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #ffebf2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #ff4d6d;
+        }
+        .gif-container {
+            width: 150px;
+            height: 150px;
+        }
+        .gif-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            position: relative;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.4s ease-in-out, left 0.4s ease-in-out, top 0.4s ease-in-out;
+        }
+        #yes {
+            background-color: #ff4d6d;
+            color: white;
+        }
+        #no {
+            background-color: gray;
+            color: white;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+        .jollibee-container {
+            position: relative; /* Set the parent as reference */
+            width: 300px;
+            height: 200px;
+        }
+
+        #jollibee {
+            max-width: 100%; /* Ensures image scales down but never exceeds its original size */
+            height: auto; /* Maintains aspect ratio */
+        }
+
+        #hearts {
+        position: absolute;
+        top: 10%;
+        left: 70%;
+        transform: translate(-50%, -50%); /* Center the overlay image */
+        max-width: 50%;
+        height: auto;
+        }
+        .love-animation {
+            display: none;
+            font-size: 50px;
+            margin-top: 20px;
+            animation: floatUp 2s ease-in-out infinite;
+        }
+        .popup-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-35%, -50%);
+            background: white;
+            width: 40%;
+            height: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .popup-box img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+            width: 60%;
+            height: auto;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-50px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="jollibee-container">
+    <img id="jollibee" src="assets/jollibee.jpg" alt="cutest girl">
+    <img id="hearts" src="assets/hearts.GIF" alt="hearts for the cutest girl">
+    </div>
+    <div class="container">
+        <div class="gif-container">
+            <img src="assets/bear_give.gif" alt="cute bear give flowers">
+        </div>
+        <h1>dear ariella, will you go on a date with me please? 🌹🥹 </h1>
+        <div class="buttons">
+            <button id="yes">Yes 🤍</button>
+            <button id="no">No 😢</button>
+        </div>
+        <div class="love-animation">💕</div>
+    </div>
+    <div class="popup-box" id="popup">
+        <img src="assets/bear_happy.gif" alt="two cute bears">
+        <h2>YAYYY!!! :D</h2>
+    </div>
+
+    <script>
+        const noButton = document.getElementById("no");
+        const yesButton = document.getElementById("yes");
+        const popup = document.getElementById("popup");
+        const loveAnimation = document.querySelector(".love-animation");
+        
+        noButton.addEventListener("mouseover", function() {
+            const maxOffset = 450; // Keeps movement close to center
+            const newX = (Math.random() * maxOffset * 2 - maxOffset);
+            const newY = (Math.random() * maxOffset * 2 - maxOffset);
+            
+            noButton.style.transform = `translate(${newX}px, ${newY}px)`;
+        });
+
+        noButton.addEventListener("click", function() {
+            const maxOffset = 450; // Limits movement close to center
+            const newX = (Math.random() * maxOffset * 2 - maxOffset);
+            const newY = (Math.random() * maxOffset * 2 - maxOffset);
+            
+            noButton.style.transform = `translate(${newX}px, ${newY}px)`;
+        });
+
+        yesButton.addEventListener("click", function() {
+            loveAnimation.style.display = "block";
+            popup.style.display = "block";
+            setTimeout(() => {
+                window.location.href = "mailto:owennigel1@gmail.com?subject=Date Confirmation&body=Yay! Let's go on a date Owen :D!";
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
